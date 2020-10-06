@@ -18,12 +18,14 @@ export default class NoteListMain extends React.Component {
   render() {
     const { folderId } = this.props.match.params
     const { notes=[] } = this.context
-    const notesForFolder = getNotesForFolder(notes, folderId)
+    const notesForFolder = getNotesForFolder(notes, parseInt(folderId));
+    console.log(getNotesForFolder(notes, parseInt(folderId)));
     return (
       <section className='NoteListMain'>
         <ul>
-          {notesForFolder.map(note =>
-            <li key={note.id}>
+          {notesForFolder.map((note,ind) =>
+            <li key={ind}>
+              {/* key={note.id} */}
               <Note
                 id={note.id}
                 name={note.name}

@@ -51,10 +51,11 @@ class App extends Component {
   }
 
   handleAddNote = note => {
+    console.log(note);
     this.setState({
       notes: [
         ...this.state.notes,
-        note
+        note[0]
       ]
     })
   }
